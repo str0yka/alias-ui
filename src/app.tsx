@@ -1,3 +1,5 @@
+import { Button } from './components';
+
 export const App = () => {
-  return <div>кнопка</div>;
+  return <Button>кнопка</Button>;
 };

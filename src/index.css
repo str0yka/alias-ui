@@ -1,5 +1,51 @@
-@import "tailwindcss";
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+@import 'tailwindcss';
+
+[data-theme='light'] {
+  --primary-color-50: #fafafa;
+  --primary-color-100: #f4f4f5;
+  --primary-color-200: #e4e4e7;
+  --primary-color-300: #d4d4d8;
+  --primary-color-400: #a1a1aa;
+  --primary-color-500: #71717a;
+  --primary-color-600: #52525b;
+  --primary-color-700: #3f3f46;
+  --primary-color-800: #27272a;
+  --primary-color-900: #18181b;
+  --primary-color-950: #09090b;
+}
+
+[data-theme='dark'] {
+  --primary-color-50: #09090b;
+  --primary-color-100: #18181b;
+  --primary-color-200: #27272a;
+  --primary-color-300: #3f3f46;
+  --primary-color-400: #52525b;
+  --primary-color-500: #71717a;
+  --primary-color-600: #a1a1aa;
+  --primary-color-700: #d4d4d8;
+  --primary-color-800: #e4e4e7;
+  --primary-color-900: #f4f4f5;
+  --primary-color-950: #fafafa;
+}
+
+@theme inline {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+
+  --color-primary-50: var(--primary-color-50);
+  --color-primary-100: var(--primary-color-100);
+  --color-primary-200: var(--primary-color-200);
+  --color-primary-300: var(--primary-color-300);
+  --color-primary-400: var(--primary-color-400);
+  --color-primary-500: var(--primary-color-500);
+  --color-primary-600: var(--primary-color-600);
+  --color-primary-700: var(--primary-color-700);
+  --color-primary-800: var(--primary-color-800);
+  --color-primary-900: var(--primary-color-900);
+  --color-primary-950: var(--primary-color-950);
+}
+
+body {
+  background-color: var(--primary-color-50);
+  color: var(--primary-color-950);
 }
