@@ -1,4 +1,4 @@
-import '@/index.css';
+import '@/tailwind.css';
 
 interface StoryProviderProps {
   children?: React.ReactNode;
