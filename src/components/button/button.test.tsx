@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
-import { Button } from './button';
+import { Button } from '@/components/index';
 
 describe('Button Component', () => {
   it('should render button with medium size by default', () => {

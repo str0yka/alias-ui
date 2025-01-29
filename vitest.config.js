@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
@@ -15,6 +16,9 @@ export default defineConfig({
         'src/components/*.ts',
         'src/components/**/*.stories.{ts, tsx}'
       ]
+    },
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   }
 });
