@@ -1,13 +1,7 @@
-import { cva } from 'class-variance-authority';
+import { VariantProps, cva } from 'class-variance-authority';
 import { forwardRef } from 'react';
 
 import { cn } from '@/lib';
-
-export type ButtonSize = 'medium' | 'large';
-
-export interface ButtonProps extends React.ComponentProps<'button'> {
-  size?: ButtonSize;
-}
 
 export const buttonStyles = cva(
   [
@@ -22,12 +16,19 @@ export const buttonStyles = cva(
         medium: 'h-8 typography-regular-14',
         large: 'h-10 typography-medium-16'
       }
+    },
+    defaultVariants: {
+      size: 'medium'
     }
   }
 );
 
+export interface ButtonProps
+  extends VariantProps<typeof buttonStyles>,
+    React.ComponentProps<'button'> {}
+
 export const Button = forwardRef<React.ComponentRef<'button'>, ButtonProps>(
-  ({ size = 'medium', type = 'button', className, ...props }, ref) => (
+  ({ size, type = 'button', className, ...props }, ref) => (
     <button
       ref={ref}
       type={type}

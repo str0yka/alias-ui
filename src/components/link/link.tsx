@@ -1,14 +1,7 @@
-import { cva } from 'class-variance-authority';
+import { VariantProps, cva } from 'class-variance-authority';
 import { forwardRef } from 'react';
 
 import { cn } from '@/lib';
-
-export type LinkMode = 'internal' | 'external';
-
-export interface LinkProps extends React.ComponentProps<'a'> {
-  mode?: LinkMode;
-  disabled?: boolean;
-}
 
 export const linkStyles = cva(
   [
@@ -21,18 +14,26 @@ export const linkStyles = cva(
       mode: {
         internal: 'active:underline',
         external: ['underline decoration-dashed', 'active:no-underline']
+      },
+      disabled: {
+        false: null,
+        true: 'text-info-50/25 pointer-events-none'
       }
+    },
+    defaultVariants: {
+      mode: 'internal',
+      disabled: false
     }
   }
 );
 
+export interface LinkProps extends VariantProps<typeof linkStyles>, React.ComponentProps<'a'> {}
+
 export const Link = forwardRef<React.ComponentRef<'a'>, LinkProps>(
-  ({ mode = 'internal', className, disabled, ...props }, ref) => (
+  ({ mode, className, disabled, ...props }, ref) => (
     <a
       ref={ref}
-      className={cn(linkStyles({ mode, className }), {
-        'text-info-50/25 pointer-events-none': disabled
-      })}
+      className={cn(linkStyles({ mode, disabled, className }))}
       {...props}
     />
   )

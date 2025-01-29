@@ -5,9 +5,6 @@ import { Link } from './link';
 const meta = {
   title: 'Components/Link/Modes',
   component: Link,
-  parameters: {
-    layout: 'centered'
-  },
   argTypes: {
     disabled: {
       control: 'boolean'
