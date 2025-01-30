@@ -8,10 +8,11 @@ describe('IconButton', () => {
   it('renders the icon button with default size', () => {
     render(
       <IconButton
-        icon={<MenuIcon />}
         size='md'
         onClick={vi.fn()}
-      />
+      >
+        <MenuIcon />
+      </IconButton>
     );
 
     expect(screen.getByRole('button')).toBeInTheDocument();
@@ -21,10 +22,11 @@ describe('IconButton', () => {
   it('applies the correct size class for "md"', () => {
     render(
       <IconButton
-        icon={<MenuIcon />}
         size='md'
         onClick={vi.fn()}
-      />
+      >
+        <MenuIcon />
+      </IconButton>
     );
 
     const button = screen.getByRole('button');
@@ -34,10 +36,11 @@ describe('IconButton', () => {
   it('applies the correct size class for "lg"', () => {
     render(
       <IconButton
-        icon={<MenuIcon />}
         size='lg'
         onClick={vi.fn()}
-      />
+      >
+        <MenuIcon />
+      </IconButton>
     );
 
     const button = screen.getByRole('button');
@@ -48,10 +51,11 @@ describe('IconButton', () => {
     const handleClick = vi.fn();
     render(
       <IconButton
-        icon={<MenuIcon />}
         size='md'
         onClick={handleClick}
-      />
+      >
+        <MenuIcon />
+      </IconButton>
     );
 
     fireEvent.click(screen.getByRole('button'));
@@ -62,11 +66,12 @@ describe('IconButton', () => {
   it('is disabled when "disabled" prop is passed', () => {
     render(
       <IconButton
-        icon={<MenuIcon />}
         size='md'
         disabled={true}
         onClick={vi.fn()}
-      />
+      >
+        <MenuIcon />
+      </IconButton>
     );
 
     const button = screen.getByRole('button');
@@ -76,11 +81,12 @@ describe('IconButton', () => {
   it('applies the correct classes when disabled', () => {
     render(
       <IconButton
-        icon={<MenuIcon />}
         size='md'
         disabled={true}
         onClick={vi.fn()}
-      />
+      >
+        <MenuIcon />
+      </IconButton>
     );
 
     const button = screen.getByRole('button');

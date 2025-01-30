@@ -24,7 +24,12 @@ const meta: Meta<typeof IconButton> = {
         disable: true
       }
     },
-    icon: {
+    children: {
+      table: {
+        disable: true
+      }
+    },
+    type: {
       table: {
         disable: true
       }
@@ -40,7 +45,7 @@ export const Primary: Story = {
   name: 'Primary',
   args: {
     size: 'md',
-    icon: <MenuIcon />,
+    children: <MenuIcon />,
     onClick: fn(),
     disabled: false
   }
