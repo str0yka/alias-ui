@@ -6,9 +6,6 @@ import { Button } from '../button';
 const meta = {
   title: 'Components/Button',
   component: Button,
-  parameters: {
-    layout: 'centered'
-  },
   argTypes: {
     variant: {
       control: 'inline-radio',

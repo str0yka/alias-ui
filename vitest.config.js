@@ -8,8 +8,10 @@ export default defineConfig({
     }
   },
   test: {
+    css: true,
     globals: true,
     environment: 'jsdom',
+    setupFiles: ['src/setup-tests.ts'],
     include: ['src/**/*.test.tsx', 'src/**/*.test.ts'],
     coverage: {
       provider: 'v8',
@@ -21,6 +23,11 @@ export default defineConfig({
         'src/components/*.ts',
         'src/components/**/*.stories.{ts, tsx}'
       ]
+    }
+  },
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   }
 });
