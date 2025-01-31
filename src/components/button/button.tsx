@@ -3,10 +3,6 @@ import { forwardRef } from 'react';
 
 import { cn } from '@/lib';
 
-export interface ButtonProps
-  extends VariantProps<typeof buttonStyles>,
-    React.ComponentProps<'button'> {}
-
 export const buttonStyles = cva(
   [
     'flex cursor-pointer items-center justify-center rounded-2xl px-8 select-none h-15 typography-medium-16',
@@ -26,6 +22,10 @@ export const buttonStyles = cva(
     }
   }
 );
+
+export interface ButtonProps
+  extends VariantProps<typeof buttonStyles>,
+    React.ComponentProps<'button'> {}
 
 export const Button = forwardRef<React.ComponentRef<'button'>, ButtonProps>(
   ({ variant, type = 'button', className, ...props }, ref) => (
