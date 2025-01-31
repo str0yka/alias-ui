@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-import { Button } from './button';
+import { Button } from '../button';
 
 const meta = {
-  title: 'Components/Button/Sizes',
+  title: 'Components/Button',
   component: Button,
   argTypes: {
-    size: {
+    variant: {
       control: 'inline-radio',
-      options: ['medium', 'large']
+      options: ['primary', 'secondary']
     },
     disabled: {
       control: 'boolean'
@@ -27,7 +27,6 @@ const meta = {
   },
   args: {
     children: 'кнопка',
-    disabled: false,
     onClick: fn()
   }
 } satisfies Meta<typeof Button>;
@@ -35,16 +34,13 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Medium: Story = {
-  name: 'Medium',
-  args: {
-    size: 'medium'
-  }
+export const Basic: Story = {
+  name: 'Basic'
 };
 
-export const Large: Story = {
-  name: 'Large',
+export const Disabled: Story = {
+  name: 'Disabled',
   args: {
-    size: 'large'
+    disabled: true
   }
 };

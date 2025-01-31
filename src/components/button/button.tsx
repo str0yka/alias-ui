@@ -5,20 +5,20 @@ import { cn } from '@/lib';
 
 export const buttonStyles = cva(
   [
-    'bg-primary-950 text-primary-50 flex cursor-pointer items-center justify-center rounded-lg px-4 select-none',
+    'flex cursor-pointer items-center justify-center rounded-2xl px-8 select-none h-15 typography-medium-16',
     'hover:opacity-80',
     'active:opacity-60',
-    'disabled:bg-primary-950/80 disabled:text-primary-600 disabled:pointer-events-none'
+    'disabled:bg-primary-100 disabled:text-primary-300 disabled:pointer-events-none'
   ],
   {
     variants: {
-      size: {
-        medium: 'h-8 typography-regular-14',
-        large: 'h-10 typography-medium-16'
+      variant: {
+        primary: 'bg-purple-400 text-zinc-50',
+        secondary: 'bg-primary-100 text-primary-950'
       }
     },
     defaultVariants: {
-      size: 'medium'
+      variant: 'primary'
     }
   }
 );
@@ -28,11 +28,11 @@ export interface ButtonProps
     React.ComponentProps<'button'> {}
 
 export const Button = forwardRef<React.ComponentRef<'button'>, ButtonProps>(
-  ({ size, type = 'button', className, ...props }, ref) => (
+  ({ variant, type = 'button', className, ...props }, ref) => (
     <button
       ref={ref}
       type={type}
-      className={cn(buttonStyles({ size, className }))}
+      className={cn(buttonStyles({ variant, className }))}
       {...props}
     />
   )
