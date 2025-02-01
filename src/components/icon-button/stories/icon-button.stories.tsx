@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-import { MenuIcon } from '@/assets/icons';
+import { MenuIcon } from '@/icons';
 
-import { IconButton } from './iconButton';
+import { IconButton } from '../icon-button';
 
 const meta: Meta<typeof IconButton> = {
   title: 'Components/IconButton',
@@ -14,7 +14,7 @@ const meta: Meta<typeof IconButton> = {
   argTypes: {
     size: {
       control: 'inline-radio',
-      options: ['md', 'lg']
+      options: ['small', 'medium']
     },
     disabled: {
       control: 'boolean'
@@ -41,11 +41,11 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
-  name: 'Primary',
+export const Base: Story = {
+  name: 'Base',
   args: {
-    size: 'md',
-    children: <MenuIcon />,
+    size: 'medium',
+    children: <MenuIcon size='sm' />,
     onClick: fn(),
     disabled: false
   }

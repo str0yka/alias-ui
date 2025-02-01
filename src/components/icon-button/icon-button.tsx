@@ -17,12 +17,12 @@ const iconButtonStyles = cva(
   {
     variants: {
       size: {
-        md: 'size-[24px]',
-        lg: 'size-[32px]'
+        small: 'size-[24px]',
+        medium: 'size-[32px]'
       }
     },
     defaultVariants: {
-      size: 'md'
+      size: 'medium'
     }
   }
 );

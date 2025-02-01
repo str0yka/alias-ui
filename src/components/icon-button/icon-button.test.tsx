@@ -1,28 +1,28 @@
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import { MenuIcon } from '@/assets/icons';
 import { IconButton } from '@/components';
+import { MenuIcon } from '@/icons';
 
 describe('IconButton', () => {
   it('renders the icon button with default size', () => {
     render(
       <IconButton
-        size='md'
+        size='medium'
         onClick={vi.fn()}
       >
-        <MenuIcon />
+        <MenuIcon data-testid='menu-icon' />
       </IconButton>
     );
 
     expect(screen.getByRole('button')).toBeInTheDocument();
-    expect(screen.getByRole('button')).toContainElement(screen.getByRole('img'));
+    expect(screen.getByRole('button')).toContainElement(screen.getByTestId('menu-icon'));
   });
 
-  it('applies the correct size class for "md"', () => {
+  it('applies the correct size class for "small"', () => {
     render(
       <IconButton
-        size='md'
+        size='small'
         onClick={vi.fn()}
       >
         <MenuIcon />
@@ -33,10 +33,10 @@ describe('IconButton', () => {
     expect(button).toHaveClass('size-[24px]');
   });
 
-  it('applies the correct size class for "lg"', () => {
+  it('applies the correct size class for "medium"', () => {
     render(
       <IconButton
-        size='lg'
+        size='medium'
         onClick={vi.fn()}
       >
         <MenuIcon />
@@ -51,7 +51,7 @@ describe('IconButton', () => {
     const handleClick = vi.fn();
     render(
       <IconButton
-        size='md'
+        size='medium'
         onClick={handleClick}
       >
         <MenuIcon />
@@ -66,7 +66,7 @@ describe('IconButton', () => {
   it('is disabled when "disabled" prop is passed', () => {
     render(
       <IconButton
-        size='md'
+        size='medium'
         disabled={true}
         onClick={vi.fn()}
       >
@@ -81,7 +81,7 @@ describe('IconButton', () => {
   it('applies the correct classes when disabled', () => {
     render(
       <IconButton
-        size='md'
+        size='medium'
         disabled={true}
         onClick={vi.fn()}
       >
@@ -92,5 +92,25 @@ describe('IconButton', () => {
     const button = screen.getByRole('button');
     expect(button).toHaveClass('disabled:text-primary-950/25');
     expect(button).toHaveClass('disabled:pointer-events-none');
+  });
+
+  it('renders correctly with default props', () => {
+    const { asFragment } = render(<IconButton>Click me</IconButton>);
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('renders correctly with small size', () => {
+    const { asFragment } = render(<IconButton size='small'>Click me</IconButton>);
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('renders correctly with custom className', () => {
+    const { asFragment } = render(<IconButton className='bg-blue-500'>Click me</IconButton>);
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('renders correctly with disabled prop', () => {
+    const { asFragment } = render(<IconButton disabled>Click me</IconButton>);
+    expect(asFragment()).toMatchSnapshot();
   });
 });
