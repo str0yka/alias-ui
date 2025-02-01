@@ -1,25 +1,42 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 
-import { clamp, useEvent } from '@/lib';
+import { clamp, cn, useEvent } from '@/lib';
 
 import { THUMB_SIZE } from './range.constants';
 import { calculateValue } from './range.helpers';
 
-export interface RangeProps {
+export interface RangeProps extends Omit<React.ComponentProps<'div'>, 'onChange'> {
   value?: number;
   defaultValue?: number;
   min?: number;
   max?: number;
   step?: number;
+  disabled?: boolean;
   onChange?: (value: number) => void;
 }
 
 export const Range = forwardRef<React.ComponentRef<'div'>, RangeProps>(
-  ({ value: externalValue, min = 0, defaultValue = min, max = 100, step = 1, onChange }, ref) => {
+  (
+    {
+      value: externalValue,
+      min = 0,
+      defaultValue = min,
+      max = 100,
+      step = 1,
+      disabled,
+      className,
+      onChange,
+      onTouchStart,
+      onMouseDown,
+      ...props
+    },
+    ref
+  ) => {
     const [internalValue, setInternalValue] = useState(defaultValue);
 
     const touchedRef = useRef(false);
-    const containerRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<React.ComponentRef<'div'>>(null);
+
     useImperativeHandle(ref, () => containerRef.current!);
 
     const value = calculateValue(externalValue ?? internalValue, { min, max, step });
@@ -92,19 +109,26 @@ export const Range = forwardRef<React.ComponentRef<'div'>, RangeProps>(
     return (
       <div
         ref={containerRef}
-        className='relative flex h-6 cursor-pointer items-center select-none'
+        className={cn(
+          'relative flex h-6 cursor-pointer items-center select-none',
+          { 'pointer-events-none': disabled },
+          className
+        )}
         onTouchStart={(event) => {
           touchedRef.current = true;
           handleChange({ pageX: event.touches[0].pageX, element: event.currentTarget });
+          onTouchStart?.(event);
         }}
         onMouseDown={(event) => {
           touchedRef.current = true;
           handleChange({ pageX: event.pageX, element: event.currentTarget });
+          onMouseDown?.(event);
         }}
+        {...props}
       >
         <div className='bg-primary-200 relative h-1 w-full overflow-hidden rounded-[1px]'>
           <div
-            className='h-full bg-purple-400'
+            className={cn('h-full bg-purple-400', { 'bg-primary-300': disabled })}
             style={{ width: `${percent}%` }}
           />
         </div>
