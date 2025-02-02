@@ -128,7 +128,7 @@ export const Range = forwardRef<React.ComponentRef<'div'>, RangeProps>(
       >
         <div className='bg-primary-200 relative h-1 w-full overflow-hidden rounded-[1px]'>
           <div
-            className={cn('h-full bg-purple-400', { 'bg-primary-300': disabled })}
+            className={cn('h-full bg-fuchsia-400', { 'bg-primary-300': disabled })}
             style={{ width: `${percent}%` }}
           />
         </div>
