@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Link Component > should match snapshot 1`] = `
+<div>
+  <a
+    class="typography-regular-12 text-info-400 cursor-pointer select-none underline-offset-2 hover:text-info-300 active:text-info-300 active:underline"
+  >
+    link
+  </a>
+</div>
+`;
+
+exports[`Link Component > should match snapshot 2`] = `
+<div>
+  <a
+    class="typography-regular-12 text-info-400 cursor-pointer select-none underline-offset-2 hover:text-info-300 active:text-info-300 underline decoration-dashed active:no-underline"
+  >
+    link
+  </a>
+</div>
+`;
+
+exports[`Link Component > should match snapshot 3`] = `
+<div>
+  <a
+    class="typography-regular-12 cursor-pointer select-none underline-offset-2 hover:text-info-300 active:text-info-300 active:underline text-info-50/25 pointer-events-none"
+  >
+    link
+  </a>
+</div>
+`;

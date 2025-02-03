@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# Run lint
+echo "Running linter..."
+pnpm lint
+if [ $? -ne 0 ]; then
+  echo "Linting failed. Commit aborted."
+  exit 1
+fi
+
+# Run type checking
+echo "Running type check..."
+pnpm run check-types
+if [ $? -ne 0 ]; then
+  echo "Type checking failed. Commit aborted."
+  exit 1
+fi
+
+# Run tests
+echo "Running tests..."
+pnpm test
+if [ $? -ne 0 ]; then
+  echo "Tests failed. Commit aborted."
+  exit 1
+fi
+
+echo "Linting and tests passed. Proceeding with commit."
