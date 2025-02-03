@@ -1,4 +1,3 @@
-export { clamp } from './clamp';
-export { closestRound } from './closest-round';
 export { cn } from './cn';
+export { clamp, round } from './math';
 export { getTestProps } from './tests';

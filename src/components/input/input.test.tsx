@@ -10,10 +10,10 @@ describe('Input Component', () => {
     expect(screen.container).toMatchSnapshot();
   });
 
-  it('should accept className and apply it to label', () => {
+  it('should accept className and apply it to input', () => {
     const screen = render(<Input className='custom-class' />);
 
-    expect(screen.container.querySelector('label')).toHaveClass('custom-class');
+    expect(screen.getByRole('textbox')).toHaveClass('custom-class');
   });
 
   it('should display invalid state', () => {

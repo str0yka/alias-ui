@@ -15,6 +15,11 @@ const meta = {
   component: Range,
   render: Render,
   argTypes: {
+    defaultValue: {
+      table: {
+        disable: true
+      }
+    },
     onChange: {
       table: {
         disable: true
@@ -22,10 +27,11 @@ const meta = {
     }
   },
   args: {
-    min: -150,
-    max: 150,
-    step: 50,
-    defaultValue: 0,
+    min: 0,
+    max: 100,
+    step: 10,
+    defaultValue: 20,
+    disabled: false,
     onChange: fn()
   }
 } satisfies Meta<typeof Range>;
