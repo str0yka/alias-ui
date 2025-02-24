@@ -1,38 +1,39 @@
 import { cloneElement, forwardRef } from 'react';
 
-type SizeType = { width: number | string; height: number | string };
-type SizesType = Record<string, SizeType>;
-
-const defaultSizes = {
-  xs: { width: 12, height: 12 },
-  sm: { width: 16, height: 16 },
-  md: { width: 24, height: 24 },
-  lg: { width: 32, height: 32 },
-  xl: { width: 48, height: 48 }
-};
-
-interface CreateIconOptions<T extends SizesType = typeof defaultSizes>
-  extends Omit<React.ComponentProps<'svg'>, 'path'> {
-  sizes?: T;
+interface Size {
+  width: number | string;
+  height: number | string;
 }
 
-export const createIcon = <T extends SizesType = typeof defaultSizes>(
+type DefaultSizes = Record<string, Size>;
+
+const defaultSizes = {
+  medium: { width: 16, height: 16 },
+  large: { width: 24, height: 24 }
+};
+
+interface CreateIconOptions<Sizes extends DefaultSizes = typeof defaultSizes>
+  extends React.ComponentProps<'svg'> {
+  sizes?: Sizes;
+}
+
+export const createIcon = <Sizes extends DefaultSizes = typeof defaultSizes>(
   Element: JSX.Element,
-  options?: CreateIconOptions<T>
+  options?: CreateIconOptions<Sizes>
 ) => {
   const { sizes, ...createProps } = options || {};
   const mergedSizes = { ...defaultSizes, ...sizes };
 
-  type IconSizes = keyof T | keyof typeof defaultSizes;
+  type IconSizes = keyof Sizes | keyof typeof defaultSizes;
 
   return forwardRef<React.ComponentRef<'svg'>, React.ComponentProps<'svg'> & { size?: IconSizes }>(
     (iconProps, ref) => {
-      const { size = 'md', ...otherIconProps } = iconProps;
-      const finalSize = mergedSizes[size as keyof typeof defaultSizes];
+      const { size = 'medium', ...otherIconProps } = iconProps;
+      const { width, height } = mergedSizes[size as keyof typeof defaultSizes];
 
       return cloneElement(Element, {
-        width: finalSize.width,
-        height: finalSize.height,
+        width,
+        height,
         ref,
         ...createProps,
         ...otherIconProps

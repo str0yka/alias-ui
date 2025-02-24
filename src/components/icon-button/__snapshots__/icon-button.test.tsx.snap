@@ -44,3 +44,48 @@ exports[`IconButton > renders correctly with small size 1`] = `
   </button>
 </DocumentFragment>
 `;
+
+exports[`IconButton Component > should render correctly with custom className 1`] = `
+<div>
+  <button
+    class="flex justify-center items-center rounded-[7px] primary-950 cursor-pointer hover:bg-primary-900/5 active:bg-primary-900/15 disabled:text-primary-950/25 disabled:pointer-events-none size-[32px] bg-blue-500"
+    type="button"
+  >
+    Click me
+  </button>
+</div>
+`;
+
+exports[`IconButton Component > should render correctly with default props 1`] = `
+<div>
+  <button
+    class="flex justify-center items-center rounded-[7px] primary-950 cursor-pointer hover:bg-primary-900/5 active:bg-primary-900/15 disabled:text-primary-950/25 disabled:pointer-events-none size-[32px]"
+    type="button"
+  >
+    Click me
+  </button>
+</div>
+`;
+
+exports[`IconButton Component > should render correctly with disabled prop 1`] = `
+<div>
+  <button
+    class="flex justify-center items-center rounded-[7px] primary-950 cursor-pointer hover:bg-primary-900/5 active:bg-primary-900/15 disabled:text-primary-950/25 disabled:pointer-events-none size-[32px]"
+    disabled=""
+    type="button"
+  >
+    Click me
+  </button>
+</div>
+`;
+
+exports[`IconButton Component > should render correctly with small size 1`] = `
+<div>
+  <button
+    class="flex justify-center items-center rounded-[7px] primary-950 cursor-pointer hover:bg-primary-900/5 active:bg-primary-900/15 disabled:text-primary-950/25 disabled:pointer-events-none size-[24px]"
+    type="button"
+  >
+    Click me
+  </button>
+</div>
+`;

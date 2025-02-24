@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { THEME_DEFAULT } from './theme.constants';
 import { ThemeGetterContext, ThemeSetterContext } from './theme.context';
-import { Theme } from './theme.types';
+import type { Theme } from './theme.types';
 
 export interface ThemeProviderProps {
   theme?: Theme;

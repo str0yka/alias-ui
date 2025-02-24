@@ -1,43 +1,23 @@
-import { type VariantProps, cva } from 'class-variance-authority';
+import type { VariantProps } from 'class-variance-authority';
 import { forwardRef } from 'react';
 
 import { cn } from '@/lib';
+
+import { iconButtonStyles } from './icon-button.styles';
 
 export interface IconButtonProps
   extends VariantProps<typeof iconButtonStyles>,
     React.ComponentProps<'button'> {}
 
-const iconButtonStyles = cva(
-  [
-    'flex justify-center items-center rounded-[7px] primary-950 cursor-pointer',
-    'hover:bg-primary-900/5',
-    'active:bg-primary-900/15',
-    'disabled:text-primary-950/25 disabled:pointer-events-none'
-  ],
-  {
-    variants: {
-      size: {
-        small: 'size-[24px]',
-        medium: 'size-[32px]'
-      }
-    },
-    defaultVariants: {
-      size: 'medium'
-    }
-  }
-);
-
 export const IconButton = forwardRef<React.ComponentRef<'button'>, IconButtonProps>(
-  ({ size, type = 'button', className, children, ...otherProps }, ref) => {
-    return (
-      <button
-        ref={ref}
-        type={type}
-        className={cn(iconButtonStyles({ size, className }))}
-        {...otherProps}
-      >
-        {children}
-      </button>
-    );
-  }
+  ({ size, type = 'button', className, children, ...props }, ref) => (
+    <button
+      ref={ref}
+      type={type}
+      className={cn(iconButtonStyles({ size, className }))}
+      {...props}
+    >
+      {children}
+    </button>
+  )
 );

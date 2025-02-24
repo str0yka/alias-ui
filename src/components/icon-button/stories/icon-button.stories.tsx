@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
 import { MenuIcon } from '@/icons';
@@ -34,6 +34,12 @@ const meta: Meta<typeof IconButton> = {
         disable: true
       }
     }
+  },
+  args: {
+    children: <MenuIcon size='medium' />,
+    onClick: fn(),
+    disabled: false,
+    size: 'medium'
   }
 };
 
@@ -42,11 +48,5 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Base: Story = {
-  name: 'Base',
-  args: {
-    size: 'medium',
-    children: <MenuIcon size='sm' />,
-    onClick: fn(),
-    disabled: false
-  }
+  name: 'Base'
 };
