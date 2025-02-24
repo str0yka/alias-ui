@@ -7,7 +7,7 @@ describe('Button Component', () => {
     render(<Button>Click Me</Button>);
 
     const buttonElement = screen.getByRole('button');
-    expect(buttonElement).toHaveClass('bg-purple-400', 'text-zinc-50');
+    expect(buttonElement).toHaveClass('bg-fuchsia-400', 'text-zinc-50');
   });
 
   it('should render button with large size when size prop is large', () => {

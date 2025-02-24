@@ -1,4 +1,4 @@
-import { clamp, closestRound } from '@/lib';
+import { clamp, round } from '@/lib';
 
 interface CalculateValue {
   (
@@ -11,9 +11,9 @@ interface CalculateValue {
 export const calculateValue: CalculateValue = (value, { max, min, step }) => {
   let rounded;
   if (typeof value === 'number') {
-    rounded = closestRound(value, Math.abs(step));
+    rounded = round(value, Math.abs(step));
   } else {
-    rounded = closestRound(
+    rounded = round(
       ((value.pageX - value.element.offsetLeft) / value.element.clientWidth) *
         100 *
         ((max - min) / 100) +
@@ -26,3 +26,14 @@ export const calculateValue: CalculateValue = (value, { max, min, step }) => {
 
   return clamped;
 };
+
+export const calculatePercent = (
+  value: number,
+  {
+    min,
+    max
+  }: {
+    min: number;
+    max: number;
+  }
+) => clamp(((value - min) / (max - min)) * 100, 0, 100);
