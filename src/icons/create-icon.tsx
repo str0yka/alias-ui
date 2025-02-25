@@ -12,16 +12,16 @@ const defaultSizes = {
   large: { width: 24, height: 24 }
 };
 
-interface CreateIconOptions<Sizes extends DefaultSizes = typeof defaultSizes>
+interface CreateIconProps<Sizes extends DefaultSizes = typeof defaultSizes>
   extends React.ComponentProps<'svg'> {
   sizes?: Sizes;
 }
 
 export const createIcon = <Sizes extends DefaultSizes = typeof defaultSizes>(
-  Element: JSX.Element,
-  options?: CreateIconOptions<Sizes>
+  Element: React.ReactElement,
+  defaultProps: CreateIconProps<Sizes> = {}
 ) => {
-  const { sizes, ...createProps } = options || {};
+  const { sizes, ...props } = defaultProps;
   const mergedSizes = { ...defaultSizes, ...sizes };
 
   type IconSizes = keyof Sizes | keyof typeof defaultSizes;
@@ -35,7 +35,7 @@ export const createIcon = <Sizes extends DefaultSizes = typeof defaultSizes>(
         width,
         height,
         ref,
-        ...createProps,
+        ...props,
         ...otherIconProps
       });
     }
