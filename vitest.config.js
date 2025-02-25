@@ -18,6 +18,9 @@ export default defineConfig({
         'src/components/*.ts',
         'src/components/**/*.stories.{ts, tsx}'
       ]
+    },
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
   resolve: {

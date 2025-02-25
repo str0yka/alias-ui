@@ -24,4 +24,14 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-echo "Linting and tests passed. Proceeding with commit."
+# Add updated snapshots
+echo "Searching for updated snapshots..."
+SNAPSHOTS=$(find . -type d -name "__snapshots__" | xargs -I {} git add {} || true)
+
+if [ -n "$SNAPSHOTS" ]; then
+  echo "Added updated snapshots to commit."
+else
+  echo "No updated snapshots found."
+fi
+
+echo "Linting, type checking, and tests passed. Proceeding with commit."
