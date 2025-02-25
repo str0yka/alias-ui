@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Input Component > should match snapshot 1`] = `
+<div>
+  <label
+    class="bg-primary-100 typography-medium-16 text-primary-950 border-primary-200 flex h-15 cursor-text items-center gap-1.5 rounded-2xl border-2 px-3 select-none focus-within:border-fuchsia-400 focus-within:shadow-lg focus-within:shadow-fuchsia-500/25 aria-disabled:bg-primary-200 aria-disabled:border-primary-300 aria-disabled:pointer-events-none aria-invalid:border-rose-400 aria-invalid:shadow-rose-500/25"
+  >
+    <input
+      class="placeholder:text-primary-400 grow outline-none"
+    />
+  </label>
+</div>
+`;

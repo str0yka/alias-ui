@@ -10,7 +10,7 @@ export const buttonStyles = cva(
   {
     variants: {
       variant: {
-        primary: 'bg-purple-400 text-zinc-50',
+        primary: 'bg-fuchsia-400 text-zinc-50',
         secondary: 'bg-primary-100 text-primary-950'
       }
     },

@@ -9,7 +9,7 @@ exports[`Range Component > should match snapshots 1`] = `
       class="bg-primary-200 relative h-1 w-full overflow-hidden rounded-[1px]"
     >
       <div
-        class="h-full bg-purple-400"
+        class="h-full bg-fuchsia-400"
         style="width: 0%;"
       />
     </div>
@@ -51,7 +51,7 @@ exports[`Range Component > should match snapshots 3`] = `
       class="bg-primary-200 relative h-1 w-full overflow-hidden rounded-[1px]"
     >
       <div
-        class="h-full bg-purple-400"
+        class="h-full bg-fuchsia-400"
         style="width: 50%;"
       />
     </div>
