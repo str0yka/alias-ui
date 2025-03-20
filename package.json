@@ -1,8 +1,22 @@
 {
   "name": "@alias/ui",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
+  "module": "dist/alias-ui.js",
+  "main": "dist/alias-ui.umd.cjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/alias-ui.js",
+      "require": "./dist/alias-ui.umd.cjs"
+    },
+    "./style.css": "./dist/alias-ui.css"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "preview": "vite preview",
     "build": "tsc -b && vite build",
@@ -66,6 +80,7 @@
     "typescript": "~5.6.3",
     "typescript-eslint": "^8.18.2",
     "vite": "^6.0.5",
+    "vite-plugin-dts": "^4.5.3",
     "vitest": "^3.0.4"
   },
   "eslintConfig": {

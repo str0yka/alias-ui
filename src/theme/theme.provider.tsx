@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import '@/tailwind.css';
+
 import { THEME_DEFAULT } from './theme.constants';
 import { ThemeGetterContext, ThemeSetterContext } from './theme.context';
 import type { Theme } from './theme.types';

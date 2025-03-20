@@ -3,7 +3,6 @@ import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
-    css: true,
     globals: true,
     environment: 'jsdom',
     setupFiles: ['src/setup-tests.ts'],
@@ -20,12 +19,12 @@ export default defineConfig({
       ]
     },
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': fileURLToPath(new URL('src', import.meta.url))
     }
   },
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': fileURLToPath(new URL('src', import.meta.url))
     }
   }
 });
