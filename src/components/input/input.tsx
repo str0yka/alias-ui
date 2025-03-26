@@ -26,7 +26,7 @@ export const Input = forwardRef<React.ComponentRef<'input'>, InputProps>(
       {startSlot}
       <input
         ref={ref}
-        className={cn('placeholder:text-primary-400 grow outline-none', className)}
+        className={cn('min-w-0 grow outline-none', 'placeholder:text-primary-400', className)}
         disabled={disabled}
         {...props}
       />

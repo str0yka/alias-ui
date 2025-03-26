@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 
+html,
 [data-theme='light'] {
   --primary-color-50: #fafafa;
   --primary-color-100: #f4f4f5;
@@ -12,7 +13,6 @@
   --primary-color-800: #27272a;
   --primary-color-900: #18181b;
   --primary-color-950: #09090b;
-
   --info-color-50: #1e1b4b;
   --info-color-100: #312e81;
   --info-color-200: #3730a3;
@@ -38,7 +38,6 @@
   --primary-color-800: #e4e4e7;
   --primary-color-900: #f4f4f5;
   --primary-color-950: #fafafa;
-
   --info-color-50: #eef2ff;
   --info-color-100: #e0e7ff;
   --info-color-200: #c7d2fe;
@@ -53,11 +52,9 @@
 }
 
 @theme inline {
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+  --font-sans:
+    'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
-
-  /* Colors */
-
   --color-primary-50: var(--primary-color-50);
   --color-primary-100: var(--primary-color-100);
   --color-primary-200: var(--primary-color-200);
@@ -69,7 +66,6 @@
   --color-primary-800: var(--primary-color-800);
   --color-primary-900: var(--primary-color-900);
   --color-primary-950: var(--primary-color-950);
-
   --color-info-50: var(--info-color-50);
   --color-info-100: var(--info-color-100);
   --color-info-200: var(--info-color-200);

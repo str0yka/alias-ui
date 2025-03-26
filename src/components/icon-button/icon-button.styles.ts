@@ -2,7 +2,7 @@ import { cva } from 'class-variance-authority';
 
 export const iconButtonStyles = cva(
   [
-    'flex justify-center items-center rounded-[7px] primary-950 cursor-pointer',
+    'flex justify-center items-center rounded-[7px] primary-950 cursor-pointer [&>svg]:size-4',
     'hover:bg-primary-900/5',
     'active:bg-primary-900/15',
     'disabled:text-primary-950/25 disabled:pointer-events-none'
